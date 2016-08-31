@@ -107,9 +107,25 @@ local function Roll()
 	
 end
 
+local function Total(t)
+	local total = 0 
+	for i,k in pairs (t) do
+		total = total + k*Point_Table[i]
+	end
+	return total
+end
+
 local function Get_Roll()
 	local av = Data.Computer.Average
-	
+	local score = Total(Scores.Computer)
+	if av > score + 100 then
+		local dice = {}
+		for i=1,5 do
+			dice[i] = math.random(6)
+		end
+	else
+
+	end
 end
 
 function Start_Game()
@@ -124,9 +140,6 @@ function Start_Game()
     end
     Scores.Computer = t
 end
-
-
-
 
 
 
